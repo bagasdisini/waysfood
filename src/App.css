@@ -2,8 +2,13 @@
 
 * {
   font-family: 'Poppins', sans-serif !important;
+  text-decoration: none !important;
 }
 
 body{
   background-color: #EFEFEF;
+}
+
+a{
+  color: black !important;
 }
