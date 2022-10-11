@@ -15,6 +15,7 @@ import Navbar from "react-bootstrap/Navbar";
 import Card from "react-bootstrap/Card";
 import React, { useState } from "react";
 import Modal from "react-bootstrap/Modal";
+import Form from "react-bootstrap/Form";
 
 function NavBar1() {
   const [show, setShow] = useState(false);
@@ -29,39 +30,134 @@ function NavBar1() {
     <Navbar style={{ backgroundColor: "#FFC700" }}>
       <Modal show={show} onHide={handleClose}>
         <Modal.Body>
-          <Modal.Title>Register</Modal.Title>
+          <Form className="p-3">
+            <h3 className="mb-4 fw-bold" style={{ color: "#FFC700" }}>
+              Register
+            </h3>
+            <Form.Group className="mb-3" controlId="email">
+              <Form.Control
+                type="email"
+                placeholder="Email"
+                style={{ backgroundColor: "#F4F4F4" }}
+              />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="password">
+              <Form.Control
+                type="password"
+                placeholder="Password"
+                style={{ backgroundColor: "#F4F4F4" }}
+              />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="name">
+              <Form.Control
+                type="text"
+                placeholder="Full Name"
+                style={{ backgroundColor: "#F4F4F4" }}
+              />
+            </Form.Group>
+            <Form.Group
+              className="mb-3"
+              controlId="gender"
+              style={{ backgroundColor: "#F4F4F4" }}
+            >
+              <Form.Select style={{ backgroundColor: "#F4F4F4" }}>
+                <option hidden>Gender</option>
+                <option>Male</option>
+                <option>Female</option>
+              </Form.Select>
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="phone">
+              <Form.Control
+                type="number"
+                placeholder="Phone"
+                style={{ backgroundColor: "#F4F4F4" }}
+              />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="type">
+              <Form.Select style={{ backgroundColor: "#F4F4F4" }}>
+                <option>As User</option>
+                <option>As Partner</option>
+              </Form.Select>
+            </Form.Group>
+            <Button
+              type="submit"
+              style={{ width: "100%", background: "#433434", border: "none" }}
+            >
+              Register
+            </Button>
+          </Form>
+          <div className="d-flex justify-content-center mx-auto">
+            <p>
+              Already have an account ? Click{" "}
+              <button
+                onClick={() => {
+                  handleShow1();
+                  handleClose();
+                }}
+                style={{ border: "none", backgroundColor: "white" }}
+                className="p-0"
+              >
+                here
+              </button>
+            </p>
+          </div>
         </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button>
-          <Button variant="primary" onClick={handleClose}>
-            Register
-          </Button>
-        </Modal.Footer>
       </Modal>
 
       <Modal show={show1} onHide={handleClose1}>
         <Modal.Body>
-          <Modal.Title>Login</Modal.Title>
+          <Form className="p-3">
+            <h3 className="mb-4 fw-bold" style={{ color: "#FFC700" }}>
+              Login
+            </h3>
+            <Form.Group className="mb-3" controlId="email">
+              <Form.Control
+                type="email"
+                placeholder="Email"
+                style={{ backgroundColor: "#F4F4F4" }}
+              />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="password">
+              <Form.Control
+                type="password"
+                placeholder="Password"
+                style={{ backgroundColor: "#F4F4F4" }}
+              />
+            </Form.Group>
+            <Button
+              type="submit"
+              style={{ width: "100%", background: "#433434", border: "none" }}
+            >
+              Login
+            </Button>
+          </Form>
+          <div className="d-flex justify-content-center mx-auto">
+            <p>
+              Don't have an account ? Click{" "}
+              <button
+                onClick={() => {
+                  handleShow();
+                  handleClose1();
+                }}
+                style={{ border: "none", backgroundColor: "white" }}
+                className="p-0"
+              >
+                here
+              </button>
+            </p>
+          </div>
         </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose1}>
-            Close
-          </Button>
-          <Button variant="primary" onClick={handleClose1}>
-            Login
-          </Button>
-        </Modal.Footer>
       </Modal>
+
       <Container>
         <img src={Icon} width="125" alt="logo" />
         <div style={{ float: "right" }}>
           <Button
             style={{
-              backgroundColor: "black",
+              backgroundColor: "#433434",
               fontSize: "12px",
               width: "100px",
+              border: "none",
             }}
             onClick={handleShow}
             className="me-3 px-4 py-1"
@@ -70,9 +166,10 @@ function NavBar1() {
           </Button>
           <Button
             style={{
-              backgroundColor: "black",
+              backgroundColor: "#433434",
               fontSize: "12px",
               width: "100px",
+              border: "none",
             }}
             className="px-4 py-1"
             onClick={handleShow1}
@@ -91,7 +188,7 @@ function Page1() {
       <div className="d-flex justify-content-center align-items-center mx-auto">
         <div className="m-5">
           <h1 className="fw-bold">Are You Hungry?</h1>
-          <h1 className="fw-bold">Express Home Deivery</h1>
+          <h1 className="fw-bold">Express Home Delivery</h1>
           <div className="d-flex">
             <img src={Line} alt="pizza" className="mt-5 align-self-start" />
             <p
@@ -189,7 +286,7 @@ function Near() {
               >
                 Nasi Goreng Mas Rony
               </Card.Title>
-              <Card.Subtitle className=" text-muted">0,2 KM</Card.Subtitle>
+              <Card.Subtitle className=" text-muted">0,6 KM</Card.Subtitle>
             </Card.Body>
           </Card>
         </div>
@@ -203,7 +300,7 @@ function Near() {
               >
                 Pecel Ayam Prambanan
               </Card.Title>
-              <Card.Subtitle className=" text-muted">0,2 KM</Card.Subtitle>
+              <Card.Subtitle className=" text-muted">0,6 KM</Card.Subtitle>
             </Card.Body>
           </Card>
         </div>
@@ -217,7 +314,7 @@ function Near() {
               >
                 Kopi Kenangan
               </Card.Title>
-              <Card.Subtitle className=" text-muted">0,2 KM</Card.Subtitle>
+              <Card.Subtitle className=" text-muted">1,8 KM</Card.Subtitle>
             </Card.Body>
           </Card>
         </div>
