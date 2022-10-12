@@ -1,76 +1,85 @@
-import Icon from "../assets/Icon.png";
-import Cart from "../assets/cart.png";
-import PP from "../assets/fotoprofile.png";
-import Profile from "../assets/profile.png";
 import Map from "../assets/map.png";
 import Minus from "../assets/-.png";
 import Bin from "../assets/bin.png";
 import Plus from "../assets/+.png";
 import Geprek from "../assets/geprek.png";
-import Logout from "../assets/export.png";
 import Container from "react-bootstrap/Container";
-import Navbar from "react-bootstrap/Navbar";
 import React from "react";
-import Dropdown from "react-bootstrap/Dropdown";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
+import { useState } from "react";
 
-function Detail1() {
+function Cart() {
+  const [counter, setCounter] = useState(0);
+  const [counter1, setCounter1] = useState(0);
+  const [qty, setQty] = useState(0);
+
+  const [harga, setHarga] = useState(0);
+  const [harga1, setHarga1] = useState(0);
+  const [subTotal, setSubTotal] = useState(0);
+  const [total, setTotal] = useState(0);
+
+  function Add() {
+    return (setCounter(counter + 1),
+    setHarga(harga + 15000),
+    setSubTotal(subTotal + 15000),
+    setQty(qty + 1),
+    setTotal(total + 15000)
+    );
+  }
+
+  function Add1() {
+    return (setCounter1(counter1 + 1),
+    setHarga1(harga1 + 15000),
+    setSubTotal(subTotal + 15000),
+    setQty(qty + 1),
+    setTotal(total + 15000)
+    );
+  }
+
+  function Less() {
+    if (counter > 0) {
+      return (setCounter(counter - 1),
+      setHarga(harga - 15000),
+      setSubTotal(subTotal - 15000),
+      setQty(qty - 1),
+      setTotal(total - 15000)
+      );
+    }
+  }
+
+  function Less1() {
+    if (counter1 > 0) {
+      return (setCounter1(counter1 - 1),
+      setHarga1(harga1 - 15000),
+      setSubTotal(subTotal - 15000),
+      setQty(qty - 1),
+      setTotal(total - 15000)
+      );
+    }
+  }
+
+  function Delete() {
+    return (setCounter(counter * 0),
+    setHarga(harga * 0),
+    setSubTotal(subTotal - 15000 * counter),
+    setQty(qty - counter),
+    setTotal(total - 15000 * counter)
+    );
+  }
+
+  function Delete1() {
+    return (setCounter1(counter1 * 0),
+    setHarga1(harga1 * 0),
+    setSubTotal(subTotal - 15000 * counter1),
+    setQty(qty - counter1),
+    setTotal(total - 15000 * counter1)
+    );
+  }
+
   return (
     <div>
-      <Navbar style={{ backgroundColor: "#FFC700" }}>
-        <Container>
-          <img src={Icon} width="125" alt="logo" />
-          <div
-            style={{ float: "right", marginRight: "70px" }}
-            className="d-flex align-items-center"
-          >
-            <img
-              src={Cart}
-              alt="logo"
-              width="25px"
-              height="25px"
-              className="me-2"
-            />
-            <Dropdown style={{ width: "10px" }}>
-              <Dropdown.Toggle
-                style={{
-                  width: "10px",
-                  backgroundColor: "#FFC700",
-                  border: "none",
-                }}
-              >
-                <img src={PP} alt="logo" width="40px" height="40px" />
-              </Dropdown.Toggle>
-
-              <Dropdown.Menu>
-                <Dropdown.Item href="#">
-                  <img
-                    src={Profile}
-                    alt="PP"
-                    width="15px"
-                    height="15px"
-                    className="me-1"
-                  />{" "}
-                  Profile
-                </Dropdown.Item>
-                <Dropdown.Item>
-                  <img
-                    src={Logout}
-                    alt="PP"
-                    width="15px"
-                    height="15px"
-                    className="me-1"
-                  />{" "}
-                  Logout
-                </Dropdown.Item>
-              </Dropdown.Menu>
-            </Dropdown>
-          </div>
-        </Container>
-      </Navbar>
-
       <Container
         className="d-flex justify-content-center align-items-center mx-auto"
         style={{ marginTop: "10px" }}
@@ -126,10 +135,13 @@ function Detail1() {
                           marginLeft: "5px",
                           marginRight: "15px",
                         }}
+                        onClick={() => {
+                          Less();
+                        }}
                       >
                         <img src={Minus} alt="geprek"></img>
                       </Button>
-                      <span>1</span>
+                      <span>{counter}</span>
                       <Button
                         style={{
                           width: "0px",
@@ -139,6 +151,9 @@ function Detail1() {
                           marginTop: "-30px",
                           marginLeft: "5px",
                         }}
+                        onClick={() => {
+                          Add();
+                        }}
                       >
                         <img src={Plus} alt="geprek"></img>
                       </Button>
@@ -146,8 +161,15 @@ function Detail1() {
                   </div>
                   <div className="d-flex align-items-center justify-content-end">
                     <div>
-                      <p className="text-danger">Rp15.000</p>
-                      <img src={Bin} alt="sampah" className="ms-5"></img>
+                      <p className="text-danger">Rp{harga}</p>
+                      <img
+                        src={Bin}
+                        alt="sampah"
+                        className="ms-5"
+                        onClick={() => {
+                          Delete();
+                        }}
+                      ></img>
                     </div>
                   </div>
                 </div>
@@ -176,10 +198,13 @@ function Detail1() {
                           marginLeft: "5px",
                           marginRight: "15px",
                         }}
+                        onClick={() => {
+                          Less1();
+                        }}
                       >
                         <img src={Minus} alt="geprek"></img>
                       </Button>
-                      <span>1</span>
+                      <span>{counter1}</span>
                       <Button
                         style={{
                           width: "0px",
@@ -189,6 +214,9 @@ function Detail1() {
                           marginTop: "-30px",
                           marginLeft: "5px",
                         }}
+                        onClick={() => {
+                          Add1();
+                        }}
                       >
                         <img src={Plus} alt="geprek"></img>
                       </Button>
@@ -196,8 +224,15 @@ function Detail1() {
                   </div>
                   <div className="d-flex align-items-center justify-content-end">
                     <div>
-                      <p className="text-danger">Rp15.000</p>
-                      <img src={Bin} alt="sampah" className="ms-5"></img>
+                      <p className="text-danger">Rp{harga1}</p>
+                      <img
+                        src={Bin}
+                        alt="sampah"
+                        className="ms-5"
+                        onClick={() => {
+                          Delete1();
+                        }}
+                      ></img>
                     </div>
                   </div>
                 </div>
@@ -212,15 +247,15 @@ function Detail1() {
                     <p>Ongkir</p>
                   </div>
                   <div style={{ textAlign: "right" }}>
-                    <p className="text-danger">Rp15.000</p>
-                    <p>2</p>
+                    <p className="text-danger">Rp{subTotal}</p>
+                    <p>{qty}</p>
                     <p className="text-danger">Rp10.000</p>
                   </div>
                 </div>
                 <hr style={{ marginTop: "-3px", opacity: "100%" }}></hr>
                 <div className="d-flex justify-content-between">
                   <p className="text-danger">Total</p>
-                  <p className="text-danger">Rp40.000</p>
+                  <p className="text-danger">Rp{total + 10000}</p>
                 </div>
               </div>
             </div>
@@ -241,12 +276,4 @@ function Detail1() {
   );
 }
 
-function Detail() {
-  return (
-    <div>
-      <Detail1 />
-    </div>
-  );
-}
-
-export default Detail;
+export default Cart;
