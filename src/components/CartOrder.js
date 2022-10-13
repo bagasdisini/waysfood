@@ -11,83 +11,42 @@ import InputGroup from "react-bootstrap/InputGroup";
 import { useState } from "react";
 import Modal from "react-bootstrap/Modal";
 
-function Cart() {
+function Cart({ item, setItem }) {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  const [counter, setCounter] = useState(0);
-  const [counter1, setCounter1] = useState(0);
-  const [qty, setQty] = useState(0);
-
-  const [harga, setHarga] = useState(0);
-  const [harga1, setHarga1] = useState(0);
-  const [subTotal, setSubTotal] = useState(0);
-  const [total, setTotal] = useState(0);
-
-  function Add() {
-    return (
-      setCounter(counter + 1),
-      setHarga(harga + 15000),
-      setSubTotal(subTotal + 15000),
-      setQty(qty + 1),
-      setTotal(total + 15000)
-    );
-  }
-
-  function Add1() {
-    return (
-      setCounter1(counter1 + 1),
-      setHarga1(harga1 + 20000),
-      setSubTotal(subTotal + 20000),
-      setQty(qty + 1),
-      setTotal(total + 20000)
-    );
-  }
+  const Add = () => {
+    setItem({
+      item1Counter: item.item1Counter + 1,
+      item1Harga: item.item1Harga + 15000,
+      subTotal: item.subTotal + 15000,
+      qty: item.qty + 1,
+      total: item.total + 15000,
+    });
+  };
 
   function Less() {
-    if (counter > 0) {
-      return (
-        setCounter(counter - 1),
-        setHarga(harga - 15000),
-        setSubTotal(subTotal - 15000),
-        setQty(qty - 1),
-        setTotal(total - 15000)
-      );
-    }
-  }
-
-  function Less1() {
-    if (counter1 > 0) {
-      return (
-        setCounter1(counter1 - 1),
-        setHarga1(harga1 - 20000),
-        setSubTotal(subTotal - 20000),
-        setQty(qty - 1),
-        setTotal(total - 20000)
-      );
+    if (item.item1Counter > 0) {
+      setItem({
+        item1Counter: item.item1Counter - 1,
+        item1Harga: item.item1Harga - 15000,
+        subTotal: item.subTotal - 15000,
+        qty: item.qty - 1,
+        total: item.total - 15000,
+      });
     }
   }
 
   function Delete() {
-    return (
-      setCounter(counter * 0),
-      setHarga(harga * 0),
-      setSubTotal(subTotal - 15000 * counter),
-      setQty(qty - counter),
-      setTotal(total - 15000 * counter)
-    );
-  }
-
-  function Delete1() {
-    return (
-      setCounter1(counter1 * 0),
-      setHarga1(harga1 * 0),
-      setSubTotal(subTotal - 20000 * counter1),
-      setQty(qty - counter1),
-      setTotal(total - 20000 * counter1)
-    );
+    setItem({
+      item1Counter: item.item1Counter * 0,
+      item1Harga: item.item1Harga * 0,
+      subTotal: item.subTotal - 15000 * item.item1Counter,
+      qty: item.qty - item.item1Counter,
+      total: item.total * 0,
+    });
   }
 
   return (
@@ -192,7 +151,7 @@ function Cart() {
                       >
                         <img src={Minus} alt="geprek"></img>
                       </Button>
-                      <span>{counter}</span>
+                      <span>{item.item1Counter}</span>
                       <Button
                         style={{
                           width: "0px",
@@ -202,9 +161,7 @@ function Cart() {
                           marginTop: "-30px",
                           marginLeft: "5px",
                         }}
-                        onClick={() => {
-                          Add();
-                        }}
+                        onClick={Add}
                       >
                         <img src={Plus} alt="geprek"></img>
                       </Button>
@@ -212,7 +169,7 @@ function Cart() {
                   </div>
                   <div className="d-flex align-items-center justify-content-end">
                     <div>
-                      <p className="text-danger">Rp{harga}</p>
+                      <p className="text-danger">Rp{item.item1Harga}</p>
                       <img
                         src={Bin}
                         alt="sampah"
@@ -225,7 +182,7 @@ function Cart() {
                   </div>
                 </div>
                 <hr style={{ opacity: "100%" }}></hr>
-                <div className="d-flex justify-content-between">
+                {/* <div className="d-flex justify-content-between">
                   <div className="d-flex">
                     <img
                       src={Geprek}
@@ -255,7 +212,7 @@ function Cart() {
                       >
                         <img src={Minus} alt="geprek"></img>
                       </Button>
-                      <span>{counter1}</span>
+                      <span>{item.item2Counter}</span>
                       <Button
                         style={{
                           width: "0px",
@@ -265,9 +222,7 @@ function Cart() {
                           marginTop: "-30px",
                           marginLeft: "5px",
                         }}
-                        onClick={() => {
-                          Add1();
-                        }}
+                        onClick={Add1}
                       >
                         <img src={Plus} alt="geprek"></img>
                       </Button>
@@ -275,7 +230,7 @@ function Cart() {
                   </div>
                   <div className="d-flex align-items-center justify-content-end">
                     <div>
-                      <p className="text-danger">Rp{harga1}</p>
+                      <p className="text-danger">Rp{item.item2Harga}</p>
                       <img
                         src={Bin}
                         alt="sampah"
@@ -287,7 +242,7 @@ function Cart() {
                     </div>
                   </div>
                 </div>
-                <hr style={{ opacity: "100%" }}></hr>
+                <hr style={{ opacity: "100%" }}></hr> */}
               </div>
               <div style={{ width: "40%" }} className="ms-5 ">
                 <hr style={{ opacity: "100%" }}></hr>
@@ -298,15 +253,15 @@ function Cart() {
                     <p>Ongkir</p>
                   </div>
                   <div style={{ textAlign: "right" }}>
-                    <p className="text-danger">Rp{subTotal}</p>
-                    <p>{qty}</p>
+                    <p className="text-danger">Rp{item.subTotal}</p>
+                    <p>{item.qty}</p>
                     <p className="text-danger">Rp10.000</p>
                   </div>
                 </div>
                 <hr style={{ marginTop: "-3px", opacity: "100%" }}></hr>
                 <div className="d-flex justify-content-between">
                   <p className="text-danger">Total</p>
-                  <p className="text-danger">Rp{total + 10000}</p>
+                  <p className="text-danger">Rp{item.total + 10000}</p>
                 </div>
               </div>
             </div>

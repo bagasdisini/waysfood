@@ -13,7 +13,7 @@ import Button from "react-bootstrap/Button";
 import Product from "../assets/product.png";
 import { useNavigate } from "react-router-dom";
 
-function Navigation({ state, setState }) {
+function Navigation({ state, setState, item, setItem }) {
   const [show, setShow] = useState(false);
   const [show1, setShow1] = useState(false);
 
@@ -213,6 +213,16 @@ function Navigation({ state, setState }) {
               className="me-2"
               onClick={navigateCart}
             />
+            <div
+              className="position-relative"
+              style={{ right: "13px", top: "-3px" }}
+              onClick={navigateCart}
+            >
+              <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                {item.qty}
+                <span className="visually-hidden"></span>
+              </span>
+            </div>
             <Dropdown style={{ width: "10px" }}>
               <Dropdown.Toggle
                 style={{

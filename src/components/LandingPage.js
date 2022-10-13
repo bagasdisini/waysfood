@@ -16,7 +16,6 @@ import Button from "react-bootstrap/Button";
 import { useNavigate } from "react-router-dom";
 
 function Page({ state, setState }) {
-
   const [show, setShow] = useState(false);
   const [show1, setShow1] = useState(false);
 
@@ -250,68 +249,72 @@ function Page({ state, setState }) {
         {state.isLogin ? (
           <div className="d-flex justify-content-evenly">
             <div className="my-5 p-2 rounded">
-                <Card style={{ width: "14rem", border: "none" }} onClick={navigateDetail}>
-                  <Card.Body>
-                    <Card.Img variant="top" src={Geprek} />
-                    <Card.Title
-                      className="my-3 fw-bold"
-                      style={{ fontSize: "15px " }}
-                    >
-                      Geprek Bensu
-                    </Card.Title>
-                    <Card.Subtitle className=" text-muted">
-                      0,2 KM
-                    </Card.Subtitle>
-                  </Card.Body>
-                </Card>
+              <Card
+                style={{ width: "14rem", border: "none" }}
+                onClick={navigateDetail}
+              >
+                <Card.Body>
+                  <Card.Img variant="top" src={Geprek} />
+                  <Card.Title
+                    className="my-3 fw-bold"
+                    style={{ fontSize: "15px " }}
+                  >
+                    Geprek Bensu
+                  </Card.Title>
+                  <Card.Subtitle className=" text-muted">0,2 KM</Card.Subtitle>
+                </Card.Body>
+              </Card>
             </div>
             <div className="my-5 p-2 rounded">
-                <Card style={{ width: "14rem", border: "none" }} onClick={navigateDetail}>
-                  <Card.Body>
-                    <Card.Img variant="top" src={Nasgor} />
-                    <Card.Title
-                      className="my-3 fw-bold"
-                      style={{ fontSize: "15px " }}
-                    >
-                      Nasi Goreng Mas Rony
-                    </Card.Title>
-                    <Card.Subtitle className=" text-muted">
-                      0,6 KM
-                    </Card.Subtitle>
-                  </Card.Body>
-                </Card>
+              <Card
+                style={{ width: "14rem", border: "none" }}
+                onClick={navigateDetail}
+              >
+                <Card.Body>
+                  <Card.Img variant="top" src={Nasgor} />
+                  <Card.Title
+                    className="my-3 fw-bold"
+                    style={{ fontSize: "15px " }}
+                  >
+                    Nasi Goreng Mas Rony
+                  </Card.Title>
+                  <Card.Subtitle className=" text-muted">0,6 KM</Card.Subtitle>
+                </Card.Body>
+              </Card>
             </div>
             <div className="my-5 p-2 rounded">
-                <Card style={{ width: "14rem", border: "none" }} onClick={navigateDetail}>
-                  <Card.Body>
-                    <Card.Img variant="top" src={Pecel} />
-                    <Card.Title
-                      className="my-3 fw-bold"
-                      style={{ fontSize: "15px " }}
-                    >
-                      Pecel Ayam Prambanan
-                    </Card.Title>
-                    <Card.Subtitle className=" text-muted">
-                      0,6 KM
-                    </Card.Subtitle>
-                  </Card.Body>
-                </Card>
+              <Card
+                style={{ width: "14rem", border: "none" }}
+                onClick={navigateDetail}
+              >
+                <Card.Body>
+                  <Card.Img variant="top" src={Pecel} />
+                  <Card.Title
+                    className="my-3 fw-bold"
+                    style={{ fontSize: "15px " }}
+                  >
+                    Pecel Ayam Prambanan
+                  </Card.Title>
+                  <Card.Subtitle className=" text-muted">0,6 KM</Card.Subtitle>
+                </Card.Body>
+              </Card>
             </div>
             <div className="my-5 p-2 rounded">
-                <Card style={{ width: "14rem", border: "none" }} onClick={navigateDetail}>
-                  <Card.Body>
-                    <Card.Img variant="top" src={Kopi} />
-                    <Card.Title
-                      className="my-3 fw-bold"
-                      style={{ fontSize: "15px " }}
-                    >
-                      Kopi Kenangan
-                    </Card.Title>
-                    <Card.Subtitle className=" text-muted">
-                      1,8 KM
-                    </Card.Subtitle>
-                  </Card.Body>
-                </Card>
+              <Card
+                style={{ width: "14rem", border: "none" }}
+                onClick={navigateDetail}
+              >
+                <Card.Body>
+                  <Card.Img variant="top" src={Kopi} />
+                  <Card.Title
+                    className="my-3 fw-bold"
+                    style={{ fontSize: "15px " }}
+                  >
+                    Kopi Kenangan
+                  </Card.Title>
+                  <Card.Subtitle className=" text-muted">1,8 KM</Card.Subtitle>
+                </Card.Body>
+              </Card>
             </div>
           </div>
         ) : (

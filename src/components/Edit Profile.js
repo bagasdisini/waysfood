@@ -5,6 +5,8 @@ import InputGroup from "react-bootstrap/InputGroup";
 import Button from "react-bootstrap/Button";
 import Map from "../assets/map.png";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import Modal from "react-bootstrap/Modal";
 
 function EditProfile() {
   const navigate = useNavigate();
@@ -13,8 +15,51 @@ function EditProfile() {
     navigate("/my-profile");
   };
 
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
   return (
     <div>
+      <Modal show={show} onHide={handleClose} size="lg">
+        <Modal.Body>
+          <iframe
+            width="100%"
+            height="400px"
+            id="gmap_canvas"
+            src="https://maps.google.com/maps?q=Dumbways%20&t=&z=17&ie=UTF8&iwloc=&output=embed"
+            frameborder="0"
+            scrolling="no"
+            marginheight="0"
+            marginwidth="0"
+            title="myFrame"
+          ></iframe>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button
+            style={{
+              width: "30%",
+              backgroundColor: "#433434",
+              float: "right",
+            }}
+            onClick={handleClose}
+          >
+            Close
+          </Button>
+          <Button
+            style={{
+              width: "30%",
+              backgroundColor: "#433434",
+              float: "right",
+            }}
+            onClick={handleClose}
+          >
+            Save
+          </Button>
+        </Modal.Footer>
+      </Modal>
+
       <Container
         className="d-flex justify-content-center align-items-center mx-auto"
         style={{ marginTop: "10px" }}
@@ -64,6 +109,7 @@ function EditProfile() {
                 <Button
                   className="mb-3"
                   style={{ width: "30%", backgroundColor: "#433434" }}
+                  onClick={handleShow}
                 >
                   Select On Map <img src={Map} alt="map"></img>
                 </Button>

@@ -14,7 +14,6 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import React, { useState } from "react";
 
 function App() {
-
   const [state, setState] = useState({
     isLogin: false,
     isLoginUser: false,
@@ -31,21 +30,51 @@ function App() {
     },
   });
 
+  const [item, setItem] = useState({
+    total: 0,
+    subTotal: 0,
+    qty: 0,
+    item1Harga: 0,
+    item1Counter: 0,
+    item2Harga: 0,
+    item2Counter: 0,
+    item3Harga: 0,
+    item3Counter: 0,
+    item4Harga: 0,
+    item4Counter: 0,
+    item5Harga: 0,
+    item5Counter: 0,
+    item6Harga: 0,
+    item6Counter: 0,
+    item7Harga: 0,
+    item7Counter: 0,
+    item8Harga: 0,
+    item8Counter: 0,
+  });
+
   return (
-      <Router>
-        <Navigation state={state} setState={setState}/>
-        <Routes>
-          <Route path="/" element={<Page state={state} setState={setState}/>} />
-          <Route path="/detail-restaurant" element={<Detail />} />
-          <Route path="/my-profile" element={<Profile />} />
-          <Route path="/profile-partner" element={<ProfilePartner />} />
-          <Route path="/cart" element={<Cart />} />
-          <Route path="/edit-my-profile" element={<EditProfile />} />
-          <Route path="/edit-profile-partner" element={<EditProfilePartner />} />
-          <Route path="/add-product" element={<AddProduct />} />
-          <Route path="/transaction" element={<Transaction />} />
-        </Routes>
-      </Router>
+    <Router>
+      <Navigation
+        state={state}
+        setState={setState}
+        item={item}
+        setItem={setItem}
+      />
+      <Routes>
+        <Route path="/" element={<Page state={state} setState={setState} />} />
+        <Route
+          path="/detail-restaurant"
+          element={<Detail item={item} setItem={setItem} />}
+        />
+        <Route path="/my-profile" element={<Profile />} />
+        <Route path="/profile-partner" element={<ProfilePartner />} />
+        <Route path="/cart" element={<Cart item={item} setItem={setItem} />} />
+        <Route path="/edit-my-profile" element={<EditProfile />} />
+        <Route path="/edit-profile-partner" element={<EditProfilePartner />} />
+        <Route path="/add-product" element={<AddProduct />} />
+        <Route path="/transaction" element={<Transaction />} />
+      </Routes>
+    </Router>
   );
 }
 
