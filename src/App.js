@@ -11,25 +11,41 @@ import EditProfilePartner from "./components/Edit ProfilePartner";
 import AddProduct from "./components/Add Product";
 import Transaction from "./components/IncomeTransaction";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import React, { useState } from "react";
 
 function App() {
+
+  const [state, setState] = useState({
+    isLogin: false,
+    isLoginUser: false,
+    isLoginAdmin: false,
+
+    user: {
+      email: "user@mail.com",
+      password: "",
+    },
+
+    admin: {
+      email: "admin@mail.com",
+      password: "",
+    },
+  });
+
   return (
-    <div>
       <Router>
-        <Navigation />
+        <Navigation state={state} setState={setState}/>
         <Routes>
-          <Route exact path="/" element={<Page />} />
-          <Route exact path="/detail-restaurant" element={<Detail />} />
-          <Route exact path="/my-profile" element={<Profile />} />
-          <Route exact path="/profile-partner" element={<ProfilePartner />} />
-          <Route exact path="/cart" element={<Cart />} />
-          <Route exact path="/edit-my-profile" element={<EditProfile />} />
-          <Route exact path="/edit-profile-partner" element={<EditProfilePartner />} />
-          <Route exact path="/add-product" element={<AddProduct />} />
-          <Route exact path="/transaction" element={<Transaction />} />
+          <Route path="/" element={<Page state={state} setState={setState}/>} />
+          <Route path="/detail-restaurant" element={<Detail />} />
+          <Route path="/my-profile" element={<Profile />} />
+          <Route path="/profile-partner" element={<ProfilePartner />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/edit-my-profile" element={<EditProfile />} />
+          <Route path="/edit-profile-partner" element={<EditProfilePartner />} />
+          <Route path="/add-product" element={<AddProduct />} />
+          <Route path="/transaction" element={<Transaction />} />
         </Routes>
       </Router>
-    </div>
   );
 }
 

@@ -4,11 +4,17 @@ import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
 import Button from "react-bootstrap/Button";
 import Map from "../assets/map.png";
+import { useNavigate } from "react-router-dom";
 
 function EditProfilePartner() {
+  const navigate = useNavigate();
+
+  const navigatePartner = () => {
+    navigate("/profile-partner");
+  };
+
   return (
     <div>
-
       <Container
         className="d-flex justify-content-center align-items-center mx-auto"
         style={{ marginTop: "10px" }}
@@ -70,6 +76,7 @@ function EditProfilePartner() {
                 backgroundColor: "#433434",
                 float: "right",
               }}
+              onClick={navigatePartner}
             >
               Save
             </Button>

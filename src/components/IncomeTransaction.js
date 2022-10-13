@@ -5,11 +5,9 @@ import React from "react";
 import Table from "react-bootstrap/Table";
 import Button from "react-bootstrap/Button";
 
-
 function Transaction() {
   return (
     <div>
-
       <Container
         className="d-flex justify-content-center align-items-center mx-auto"
         style={{ marginTop: "10px" }}
@@ -20,7 +18,7 @@ function Transaction() {
             <div>
               <Table bordered hover style={{ border: "1px" }}>
                 <thead style={{ backgroundColor: "#E5E5E5" }}>
-                  <tr >
+                  <tr>
                     <th>No</th>
                     <th>Name</th>
                     <th>Address</th>
@@ -36,31 +34,44 @@ function Transaction() {
                     <td>Cileungsi</td>
                     <td>Pkaket Geprek, Paket ke..</td>
                     <td className="text-warning">Waiting Approve</td>
-                    <td className="d-flex justify-content-evenly p-1"><Button className="py-1 px-3 bg-danger border-0">Cancel</Button><Button className="py-1 px-3 bg-success border-0">Approve</Button></td>
+                    <td className="d-flex justify-content-evenly p-1">
+                      <Button className="py-1 px-3 bg-danger border-0">
+                        Cancel
+                      </Button>
+                      <Button className="py-1 px-3 bg-success border-0">
+                        Approve
+                      </Button>
+                    </td>
                   </tr>
                   <tr>
-                  <td>2</td>
+                    <td>2</td>
                     <td>Haris Gams</td>
                     <td>Serang</td>
                     <td>Pkaket Geprek, Paket ke..</td>
                     <td className="text-success">Success</td>
-                    <td className="d-flex justify-content-center"><img src={Checked} alt="centang"></img></td>
+                    <td className="d-flex justify-content-center">
+                      <img src={Checked} alt="centang"></img>
+                    </td>
                   </tr>
                   <tr>
-                  <td>3</td>
+                    <td>3</td>
                     <td>Aziz Union</td>
                     <td>Bekasi</td>
                     <td>Pkaket Geprek, Paket ke..</td>
                     <td className="text-danger">Cancel</td>
-                    <td className="d-flex justify-content-center"><img src={Cancel} alt="cancel"></img></td>
+                    <td className="d-flex justify-content-center">
+                      <img src={Cancel} alt="cancel"></img>
+                    </td>
                   </tr>
                   <tr>
-                  <td>4</td>
+                    <td>4</td>
                     <td>Lae Tanjung Balai</td>
                     <td>Tanjung Balai</td>
                     <td>Pkaket Geprek, Paket ke..</td>
                     <td className="text-primary">On The Way</td>
-                    <td className="d-flex justify-content-center"><img src={Checked} alt="centang"></img></td>
+                    <td className="d-flex justify-content-center">
+                      <img src={Checked} alt="centang"></img>
+                    </td>
                   </tr>
                 </tbody>
               </Table>

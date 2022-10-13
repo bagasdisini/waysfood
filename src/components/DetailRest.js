@@ -6,7 +6,6 @@ import Card from "react-bootstrap/Card";
 function Detail() {
   return (
     <div>
-
       <div
         className="d-flex justify-content-center align-items-center mx-auto"
         style={{ marginTop: "10px" }}
@@ -35,7 +34,7 @@ function Detail() {
             <Card style={{ width: "14rem" }} className="p-2 mb-3">
               <Card.Img variant="top" src={Geprek} />
               <Card.Body className="py-3 px-1">
-                <Card.Title>Paket Geprek</Card.Title>
+                <Card.Title>Paket Geprek2</Card.Title>
                 <Card.Text className="text-danger">Rp 15.000</Card.Text>
                 <Button
                   style={{
@@ -53,7 +52,7 @@ function Detail() {
             <Card style={{ width: "14rem" }} className="p-2 mb-3">
               <Card.Img variant="top" src={Geprek} />
               <Card.Body className="py-3 px-1">
-                <Card.Title>Paket Geprek</Card.Title>
+                <Card.Title>Paket Geprek3</Card.Title>
                 <Card.Text className="text-danger">Rp 15.000</Card.Text>
                 <Button
                   style={{
@@ -71,7 +70,7 @@ function Detail() {
             <Card style={{ width: "14rem" }} className="p-2 mb-3">
               <Card.Img variant="top" src={Geprek} />
               <Card.Body className="py-3 px-1">
-                <Card.Title>Paket Geprek</Card.Title>
+                <Card.Title>Paket Geprek4</Card.Title>
                 <Card.Text className="text-danger">Rp 15.000</Card.Text>
                 <Button
                   style={{
@@ -89,7 +88,7 @@ function Detail() {
             <Card style={{ width: "14rem" }} className="p-2 mb-3">
               <Card.Img variant="top" src={Geprek} />
               <Card.Body className="py-3 px-1">
-                <Card.Title>Paket Geprek</Card.Title>
+                <Card.Title>Paket Geprek5</Card.Title>
                 <Card.Text className="text-danger">Rp 15.000</Card.Text>
                 <Button
                   style={{
@@ -107,7 +106,7 @@ function Detail() {
             <Card style={{ width: "14rem" }} className="p-2 mb-3">
               <Card.Img variant="top" src={Geprek} />
               <Card.Body className="py-3 px-1">
-                <Card.Title>Paket Geprek</Card.Title>
+                <Card.Title>Paket Geprek6</Card.Title>
                 <Card.Text className="text-danger">Rp 15.000</Card.Text>
                 <Button
                   style={{
@@ -125,7 +124,7 @@ function Detail() {
             <Card style={{ width: "14rem" }} className="p-2 mb-3">
               <Card.Img variant="top" src={Geprek} />
               <Card.Body className="py-3 px-1">
-                <Card.Title>Paket Geprek</Card.Title>
+                <Card.Title>Paket Geprek7</Card.Title>
                 <Card.Text className="text-danger">Rp 15.000</Card.Text>
                 <Button
                   style={{
@@ -143,7 +142,7 @@ function Detail() {
             <Card style={{ width: "14rem" }} className="p-2 mb-3">
               <Card.Img variant="top" src={Geprek} />
               <Card.Body className="py-3 px-1">
-                <Card.Title>Paket Geprek</Card.Title>
+                <Card.Title>Paket Geprek8</Card.Title>
                 <Card.Text className="text-danger">Rp 15.000</Card.Text>
                 <Button
                   style={{

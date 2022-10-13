@@ -3,8 +3,19 @@ import Container from "react-bootstrap/Container";
 import Icon from "../assets/Icon.png";
 import React from "react";
 import Button from "react-bootstrap/Button";
+import { useNavigate } from "react-router-dom";
 
 function ProfilePartner() {
+  const navigate = useNavigate();
+
+  const navigateEditProfilePartner = () => {
+    navigate("/edit-profile-partner");
+  };
+
+  const navigateTransaction = () => {
+    navigate("/transaction");
+  };
+
   return (
     <div>
       <Container
@@ -16,8 +27,18 @@ function ProfilePartner() {
             <div className="d-flex">
               <div className="d-flex flex-column">
                 <h3 className="fw-bold mb-4">Profile Partner</h3>
-                <img src={Geprek} width="150" height="190" alt="logo" className="mb-4" style={{ objectFit: "cover" }}/>
-                <Button style={{ backgroundColor: "#433434", border: "none" }}>
+                <img
+                  src={Geprek}
+                  width="150"
+                  height="190"
+                  alt="logo"
+                  className="mb-4"
+                  style={{ objectFit: "cover" }}
+                />
+                <Button
+                  style={{ backgroundColor: "#433434", border: "none" }}
+                  onClick={navigateEditProfilePartner}
+                >
                   Edit Profile
                 </Button>
               </div>
@@ -42,7 +63,11 @@ function ProfilePartner() {
                     <strong>Saturday</strong>, 12 March 2021
                   </p>
                   <p
-                    style={{ fontSize: "13px", marginBottom: "0px", color: "#974A4A" }}
+                    style={{
+                      fontSize: "13px",
+                      marginBottom: "0px",
+                      color: "#974A4A",
+                    }}
                     className="fw-bold"
                   >
                     Total : Rp 45.000
@@ -60,6 +85,7 @@ function ProfilePartner() {
                       color: "#00FF47",
                       border: "none",
                     }}
+                    onClick={navigateTransaction}
                   >
                     Finished
                   </Button>

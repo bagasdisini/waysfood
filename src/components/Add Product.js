@@ -13,13 +13,13 @@ function EditProfile() {
       >
         <div className="m-5" style={{ width: "90%" }}>
           <div>
-            <h3 className="fw-bold mb-4">Edit Profile Partner</h3>
+            <h3 className="fw-bold mb-4">Add Product</h3>
             <div>
               <div className="d-flex justify-content-between">
                 <InputGroup className="mb-3" style={{ width: "69%" }}>
                   <Form.Control
-                    placeholder="Name Partner"
-                    aria-label="Partner"
+                    placeholder="Title"
+                    aria-label="Title"
                     aria-describedby="basic-addon1"
                   />
                 </InputGroup>

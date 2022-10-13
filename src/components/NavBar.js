@@ -11,25 +11,9 @@ import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Product from "../assets/product.png";
+import { useNavigate } from "react-router-dom";
 
-
-function Navigation() {
-  const [state, setState] = useState({
-    isLogin: false,
-    isLoginUser: false,
-    isLoginAdmin: false,
-
-    user: {
-      email: "user@mail.com",
-      password: "",
-    },
-
-    admin: {
-      email: "admin@mail.com",
-      password: "",
-    },
-  });
-
+function Navigation({ state, setState }) {
   const [show, setShow] = useState(false);
   const [show1, setShow1] = useState(false);
 
@@ -64,8 +48,30 @@ function Navigation() {
     });
   };
 
+  const navigate = useNavigate();
+
+  const navigateHome = () => {
+    navigate("/");
+  };
+
+  const navigateProfile = () => {
+    navigate("/my-profile");
+  };
+
+  const navigateCart = () => {
+    navigate("/cart");
+  };
+
+  const navigatePartner = () => {
+    navigate("/profile-partner");
+  };
+
+  const navigateAddProduct = () => {
+    navigate("/add-product");
+  };
+
   return (
-    <Navbar style={{ backgroundColor: "#FFC700" }}>
+    <Navbar style={{ backgroundColor: "#FFC700" }} className="sticky-top">
       <Modal show={show} onHide={handleClose}>
         <Modal.Body>
           <Form className="p-3">
@@ -193,19 +199,20 @@ function Navigation() {
       </Modal>
 
       <Container>
-        <a href="/"><img src={Icon} width="125" alt="logo" /></a>
+        <img src={Icon} width="125" alt="logo" onClick={navigateHome} />
         {state.isLoginUser ? (
           <div
             style={{ float: "right", marginRight: "70px" }}
             className="d-flex align-items-center"
           >
-            <a href="/cart"><img
+            <img
               src={Cart}
               alt="logo"
               width="25px"
               height="25px"
               className="me-2"
-            /></a>
+              onClick={navigateCart}
+            />
             <Dropdown style={{ width: "10px" }}>
               <Dropdown.Toggle
                 style={{
@@ -218,7 +225,7 @@ function Navigation() {
               </Dropdown.Toggle>
 
               <Dropdown.Menu>
-                <Dropdown.Item href="/my-profile">
+                <Dropdown.Item onClick={navigateProfile}>
                   <img
                     src={Profile}
                     alt="PP"
@@ -226,7 +233,7 @@ function Navigation() {
                     height="15px"
                     className="me-1"
                   />{" "}
-                  Profile                  
+                  Profile
                 </Dropdown.Item>
                 <Dropdown.Item onClick={handleLogout}>
                   <img
@@ -258,7 +265,7 @@ function Navigation() {
               </Dropdown.Toggle>
 
               <Dropdown.Menu>
-                <Dropdown.Item href="/profile-partner">
+                <Dropdown.Item onClick={navigatePartner}>
                   <img
                     src={Profile}
                     alt="PP"
@@ -268,7 +275,7 @@ function Navigation() {
                   />{" "}
                   Profile Partner
                 </Dropdown.Item>
-                <Dropdown.Item href="/add-product">
+                <Dropdown.Item onClick={navigateAddProduct}>
                   <img
                     src={Product}
                     alt="PP"

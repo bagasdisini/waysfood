@@ -3,11 +3,17 @@ import PP1 from "../assets/fotoprofile1.png";
 import Container from "react-bootstrap/Container";
 import React from "react";
 import Button from "react-bootstrap/Button";
+import { useNavigate } from "react-router-dom";
 
 function Profile() {
+  const navigate = useNavigate();
+
+  const navigateEditProfile = () => {
+    navigate("/edit-my-profile");
+  };
+
   return (
     <div>
-
       <Container
         className="d-flex justify-content-center align-items-center mx-auto"
         style={{ marginTop: "10px" }}
@@ -18,7 +24,10 @@ function Profile() {
               <div className="d-flex flex-column">
                 <h3 className="fw-bold mb-4">My Profile</h3>
                 <img src={PP1} width="150" alt="logo" className="mb-4" />
-                <Button style={{ backgroundColor: "#433434", border: "none" }}>
+                <Button
+                  style={{ backgroundColor: "#433434", border: "none" }}
+                  onClick={navigateEditProfile}
+                >
                   Edit Profile
                 </Button>
               </div>

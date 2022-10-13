@@ -21,60 +21,66 @@ function Cart() {
   const [total, setTotal] = useState(0);
 
   function Add() {
-    return (setCounter(counter + 1),
-    setHarga(harga + 15000),
-    setSubTotal(subTotal + 15000),
-    setQty(qty + 1),
-    setTotal(total + 15000)
+    return (
+      setCounter(counter + 1),
+      setHarga(harga + 15000),
+      setSubTotal(subTotal + 15000),
+      setQty(qty + 1),
+      setTotal(total + 15000)
     );
   }
 
   function Add1() {
-    return (setCounter1(counter1 + 1),
-    setHarga1(harga1 + 15000),
-    setSubTotal(subTotal + 15000),
-    setQty(qty + 1),
-    setTotal(total + 15000)
+    return (
+      setCounter1(counter1 + 1),
+      setHarga1(harga1 + 20000),
+      setSubTotal(subTotal + 20000),
+      setQty(qty + 1),
+      setTotal(total + 20000)
     );
   }
 
   function Less() {
     if (counter > 0) {
-      return (setCounter(counter - 1),
-      setHarga(harga - 15000),
-      setSubTotal(subTotal - 15000),
-      setQty(qty - 1),
-      setTotal(total - 15000)
+      return (
+        setCounter(counter - 1),
+        setHarga(harga - 15000),
+        setSubTotal(subTotal - 15000),
+        setQty(qty - 1),
+        setTotal(total - 15000)
       );
     }
   }
 
   function Less1() {
     if (counter1 > 0) {
-      return (setCounter1(counter1 - 1),
-      setHarga1(harga1 - 15000),
-      setSubTotal(subTotal - 15000),
-      setQty(qty - 1),
-      setTotal(total - 15000)
+      return (
+        setCounter1(counter1 - 1),
+        setHarga1(harga1 - 20000),
+        setSubTotal(subTotal - 20000),
+        setQty(qty - 1),
+        setTotal(total - 20000)
       );
     }
   }
 
   function Delete() {
-    return (setCounter(counter * 0),
-    setHarga(harga * 0),
-    setSubTotal(subTotal - 15000 * counter),
-    setQty(qty - counter),
-    setTotal(total - 15000 * counter)
+    return (
+      setCounter(counter * 0),
+      setHarga(harga * 0),
+      setSubTotal(subTotal - 15000 * counter),
+      setQty(qty - counter),
+      setTotal(total - 15000 * counter)
     );
   }
 
   function Delete1() {
-    return (setCounter1(counter1 * 0),
-    setHarga1(harga1 * 0),
-    setSubTotal(subTotal - 15000 * counter1),
-    setQty(qty - counter1),
-    setTotal(total - 15000 * counter1)
+    return (
+      setCounter1(counter1 * 0),
+      setHarga1(harga1 * 0),
+      setSubTotal(subTotal - 20000 * counter1),
+      setQty(qty - counter1),
+      setTotal(total - 20000 * counter1)
     );
   }
 
@@ -186,7 +192,7 @@ function Cart() {
                       alt="geprek"
                     ></img>
                     <div className="align-self-center">
-                      <p className="ms-3">Paket Geprek</p>
+                      <p className="ms-3">Paket Geprek 2</p>
 
                       <Button
                         style={{

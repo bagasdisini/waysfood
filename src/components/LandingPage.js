@@ -13,23 +13,9 @@ import React, { useState } from "react";
 import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
+import { useNavigate } from "react-router-dom";
 
-function Page() {
-  const [state, setState] = useState({
-    isLogin: false,
-    isLoginUser: false,
-    isLoginAdmin: false,
-
-    user: {
-      email: "user@mail.com",
-      password: "",
-    },
-
-    admin: {
-      email: "admin@mail.com",
-      password: "",
-    },
-  });
+function Page({ state, setState }) {
 
   const [show, setShow] = useState(false);
   const [show1, setShow1] = useState(false);
@@ -54,6 +40,12 @@ function Page() {
         isLoginAdmin: true,
       });
     }
+  };
+
+  const navigate = useNavigate();
+
+  const navigateDetail = () => {
+    navigate("/detail-restaurant");
   };
 
   return (
@@ -258,8 +250,7 @@ function Page() {
         {state.isLogin ? (
           <div className="d-flex justify-content-evenly">
             <div className="my-5 p-2 rounded">
-              <a href="/detail-restaurant">
-                <Card style={{ width: "14rem", border: "none" }}>
+                <Card style={{ width: "14rem", border: "none" }} onClick={navigateDetail}>
                   <Card.Body>
                     <Card.Img variant="top" src={Geprek} />
                     <Card.Title
@@ -273,11 +264,9 @@ function Page() {
                     </Card.Subtitle>
                   </Card.Body>
                 </Card>
-              </a>
             </div>
             <div className="my-5 p-2 rounded">
-              <a href="/detail-restaurant">
-                <Card style={{ width: "14rem", border: "none" }}>
+                <Card style={{ width: "14rem", border: "none" }} onClick={navigateDetail}>
                   <Card.Body>
                     <Card.Img variant="top" src={Nasgor} />
                     <Card.Title
@@ -291,11 +280,9 @@ function Page() {
                     </Card.Subtitle>
                   </Card.Body>
                 </Card>
-              </a>
             </div>
             <div className="my-5 p-2 rounded">
-              <a href="/detail-restaurant">
-                <Card style={{ width: "14rem", border: "none" }}>
+                <Card style={{ width: "14rem", border: "none" }} onClick={navigateDetail}>
                   <Card.Body>
                     <Card.Img variant="top" src={Pecel} />
                     <Card.Title
@@ -309,11 +296,9 @@ function Page() {
                     </Card.Subtitle>
                   </Card.Body>
                 </Card>
-              </a>
             </div>
             <div className="my-5 p-2 rounded">
-              <a href="/detail-restaurant">
-                <Card style={{ width: "14rem", border: "none" }}>
+                <Card style={{ width: "14rem", border: "none" }} onClick={navigateDetail}>
                   <Card.Body>
                     <Card.Img variant="top" src={Kopi} />
                     <Card.Title
@@ -327,7 +312,6 @@ function Page() {
                     </Card.Subtitle>
                   </Card.Body>
                 </Card>
-              </a>
             </div>
           </div>
         ) : (
