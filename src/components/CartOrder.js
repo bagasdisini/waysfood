@@ -10,8 +10,15 @@ import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
 import { useState } from "react";
 import Modal from "react-bootstrap/Modal";
+import { useNavigate } from "react-router-dom";
 
 function Cart({ item, setItem }) {
+  const navigate = useNavigate();
+
+  const navigateDetailRest = () => {
+    navigate("/detail-restaurant");
+  };
+
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -120,129 +127,84 @@ function Cart({ item, setItem }) {
             <p>Review Your Order</p>
             <div className="d-flex">
               <div style={{ width: "60%" }}>
-                <hr style={{ opacity: "100%" }}></hr>
-                <div className="d-flex justify-content-between">
-                  <div className="d-flex">
-                    <img
-                      src={Geprek}
+                {item.qty > 0 ? (
+                  <div>
+                    <hr style={{ opacity: "100%" }}></hr>
+                    <div className="d-flex justify-content-between">
+                      <div className="d-flex">
+                        <img
+                          src={Geprek}
+                          style={{
+                            width: "100px",
+                            height: "100px",
+                            objectFit: "cover",
+                          }}
+                          alt="geprek"
+                        ></img>
+                        <div className="align-self-center">
+                          <p className="ms-3">Paket Geprek</p>
+                          <Button
+                            style={{
+                              width: "0px",
+                              height: "0px",
+                              backgroundColor: "#EFEFEF",
+                              border: "none",
+                              marginTop: "-30px",
+                              marginLeft: "5px",
+                              marginRight: "15px",
+                            }}
+                            onClick={() => {
+                              Less();
+                            }}
+                          >
+                            <img src={Minus} alt="geprek"></img>
+                          </Button>
+                          <span>{item.item1Counter}</span>
+                          <Button
+                            style={{
+                              width: "0px",
+                              height: "0px",
+                              backgroundColor: "#EFEFEF",
+                              border: "none",
+                              marginTop: "-30px",
+                              marginLeft: "5px",
+                            }}
+                            onClick={Add}
+                          >
+                            <img src={Plus} alt="geprek"></img>
+                          </Button>
+                        </div>
+                      </div>
+                      <div className="d-flex align-items-center justify-content-end">
+                        <div>
+                          <p className="text-danger">Rp{item.item1Harga}</p>
+                          <img
+                            src={Bin}
+                            alt="sampah"
+                            className="ms-5"
+                            onClick={() => {
+                              Delete();
+                            }}
+                          ></img>
+                        </div>
+                      </div>
+                    </div>
+                    <hr style={{ opacity: "100%" }}></hr>
+                  </div>
+                ) : (
+                  <div>
+                    <p>Your cart is empty, please check out product!</p>
+                    <Button
                       style={{
-                        width: "100px",
-                        height: "100px",
-                        objectFit: "cover",
+                        backgroundColor: "#433434",
+                        border: "none",
                       }}
-                      alt="geprek"
-                    ></img>
-                    <div className="align-self-center">
-                      <p className="ms-3">Paket Geprek</p>
-
-                      <Button
-                        style={{
-                          width: "0px",
-                          height: "0px",
-                          backgroundColor: "#EFEFEF",
-                          border: "none",
-                          marginTop: "-30px",
-                          marginLeft: "5px",
-                          marginRight: "15px",
-                        }}
-                        onClick={() => {
-                          Less();
-                        }}
-                      >
-                        <img src={Minus} alt="geprek"></img>
-                      </Button>
-                      <span>{item.item1Counter}</span>
-                      <Button
-                        style={{
-                          width: "0px",
-                          height: "0px",
-                          backgroundColor: "#EFEFEF",
-                          border: "none",
-                          marginTop: "-30px",
-                          marginLeft: "5px",
-                        }}
-                        onClick={Add}
-                      >
-                        <img src={Plus} alt="geprek"></img>
-                      </Button>
-                    </div>
+                      onClick={navigateDetailRest}
+                    >
+                      Start Shopping!
+                    </Button>
                   </div>
-                  <div className="d-flex align-items-center justify-content-end">
-                    <div>
-                      <p className="text-danger">Rp{item.item1Harga}</p>
-                      <img
-                        src={Bin}
-                        alt="sampah"
-                        className="ms-5"
-                        onClick={() => {
-                          Delete();
-                        }}
-                      ></img>
-                    </div>
-                  </div>
-                </div>
-                <hr style={{ opacity: "100%" }}></hr>
-                {/* <div className="d-flex justify-content-between">
-                  <div className="d-flex">
-                    <img
-                      src={Geprek}
-                      style={{
-                        width: "100px",
-                        height: "100px",
-                        objectFit: "cover",
-                      }}
-                      alt="geprek"
-                    ></img>
-                    <div className="align-self-center">
-                      <p className="ms-3">Paket Geprek 2</p>
-
-                      <Button
-                        style={{
-                          width: "0px",
-                          height: "0px",
-                          backgroundColor: "#EFEFEF",
-                          border: "none",
-                          marginTop: "-30px",
-                          marginLeft: "5px",
-                          marginRight: "15px",
-                        }}
-                        onClick={() => {
-                          Less1();
-                        }}
-                      >
-                        <img src={Minus} alt="geprek"></img>
-                      </Button>
-                      <span>{item.item2Counter}</span>
-                      <Button
-                        style={{
-                          width: "0px",
-                          height: "0px",
-                          backgroundColor: "#EFEFEF",
-                          border: "none",
-                          marginTop: "-30px",
-                          marginLeft: "5px",
-                        }}
-                        onClick={Add1}
-                      >
-                        <img src={Plus} alt="geprek"></img>
-                      </Button>
-                    </div>
-                  </div>
-                  <div className="d-flex align-items-center justify-content-end">
-                    <div>
-                      <p className="text-danger">Rp{item.item2Harga}</p>
-                      <img
-                        src={Bin}
-                        alt="sampah"
-                        className="ms-5"
-                        onClick={() => {
-                          Delete1();
-                        }}
-                      ></img>
-                    </div>
-                  </div>
-                </div>
-                <hr style={{ opacity: "100%" }}></hr> */}
+                )}
               </div>
               <div style={{ width: "40%" }} className="ms-5 ">
                 <hr style={{ opacity: "100%" }}></hr>

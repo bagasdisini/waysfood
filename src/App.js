@@ -36,20 +36,6 @@ function App() {
     qty: 0,
     item1Harga: 0,
     item1Counter: 0,
-    item2Harga: 0,
-    item2Counter: 0,
-    item3Harga: 0,
-    item3Counter: 0,
-    item4Harga: 0,
-    item4Counter: 0,
-    item5Harga: 0,
-    item5Counter: 0,
-    item6Harga: 0,
-    item6Counter: 0,
-    item7Harga: 0,
-    item7Counter: 0,
-    item8Harga: 0,
-    item8Counter: 0,
   });
 
   return (

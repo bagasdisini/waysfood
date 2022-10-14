@@ -1,19 +1,13 @@
 import Pizza from "../assets/pizza.png";
 import Line from "../assets/garis.png";
-import BK from "../assets/BK.png";
-import Sbux from "../assets/sbux.png";
-import KFC from "../assets/kfc.png";
-import Jco from "../assets/jco.png";
-import Geprek from "../assets/geprek.png";
-import Nasgor from "../assets/nasgor.png";
-import Pecel from "../assets/pecel.png";
-import Kopi from "../assets/kopi.png";
 import Card from "react-bootstrap/Card";
 import React, { useState } from "react";
 import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { useNavigate } from "react-router-dom";
+import { Restaurant } from "../data/Restaurant";
+import { RestaurantNear } from "../data/RestaurantNear";
 
 function Page({ state, setState }) {
   const [show, setShow] = useState(false);
@@ -202,42 +196,18 @@ function Page({ state, setState }) {
           <h3 className="fw-bold">Popular Restaurant</h3>
         </div>
         <div className="d-flex justify-content-evenly">
-          <div
-            className="my-5 p-3 rounded"
-            style={{ backgroundColor: "white", width: "23%" }}
-          >
-            <img src={BK} alt="bk" />
-            <span className="fw-bold ms-3" style={{ fontSize: "18px" }}>
-              Burger King
-            </span>
-          </div>
-          <div
-            className="my-5 p-3 rounded"
-            style={{ backgroundColor: "white", width: "23%" }}
-          >
-            <img src={Sbux} alt="bk" />
-            <span className="fw-bold ms-3" style={{ fontSize: "18px" }}>
-              Starbucks
-            </span>
-          </div>
-          <div
-            className="my-5 p-3 rounded"
-            style={{ backgroundColor: "white", width: "23%" }}
-          >
-            <img src={KFC} alt="bk" />
-            <span className="fw-bold ms-3" style={{ fontSize: "18px" }}>
-              KFC
-            </span>
-          </div>
-          <div
-            className="my-5 p-3 rounded"
-            style={{ backgroundColor: "white", width: "23%" }}
-          >
-            <img src={Jco} alt="bk" />
-            <span className="fw-bold ms-3" style={{ fontSize: "18px" }}>
-              Jco
-            </span>
-          </div>
+          {Restaurant.map((item, index) => (
+            <div
+              className="my-5 p-3 rounded"
+              style={{ backgroundColor: "white", width: "23%" }}
+              key={index}
+            >
+              <img src={item.image} alt="bk" />
+              <span className="fw-bold ms-3" style={{ fontSize: "18px" }}>
+                {item.name}
+              </span>
+            </div>
+          ))}
         </div>
       </div>
 
@@ -248,149 +218,50 @@ function Page({ state, setState }) {
 
         {state.isLogin ? (
           <div className="d-flex justify-content-evenly">
-            <div className="my-5 p-2 rounded">
-              <Card
-                style={{ width: "14rem", border: "none" }}
-                onClick={navigateDetail}
-              >
-                <Card.Body>
-                  <Card.Img variant="top" src={Geprek} />
-                  <Card.Title
-                    className="my-3 fw-bold"
-                    style={{ fontSize: "15px " }}
-                  >
-                    Geprek Bensu
-                  </Card.Title>
-                  <Card.Subtitle className=" text-muted">0,2 KM</Card.Subtitle>
-                </Card.Body>
-              </Card>
-            </div>
-            <div className="my-5 p-2 rounded">
-              <Card
-                style={{ width: "14rem", border: "none" }}
-                onClick={navigateDetail}
-              >
-                <Card.Body>
-                  <Card.Img variant="top" src={Nasgor} />
-                  <Card.Title
-                    className="my-3 fw-bold"
-                    style={{ fontSize: "15px " }}
-                  >
-                    Nasi Goreng Mas Rony
-                  </Card.Title>
-                  <Card.Subtitle className=" text-muted">0,6 KM</Card.Subtitle>
-                </Card.Body>
-              </Card>
-            </div>
-            <div className="my-5 p-2 rounded">
-              <Card
-                style={{ width: "14rem", border: "none" }}
-                onClick={navigateDetail}
-              >
-                <Card.Body>
-                  <Card.Img variant="top" src={Pecel} />
-                  <Card.Title
-                    className="my-3 fw-bold"
-                    style={{ fontSize: "15px " }}
-                  >
-                    Pecel Ayam Prambanan
-                  </Card.Title>
-                  <Card.Subtitle className=" text-muted">0,6 KM</Card.Subtitle>
-                </Card.Body>
-              </Card>
-            </div>
-            <div className="my-5 p-2 rounded">
-              <Card
-                style={{ width: "14rem", border: "none" }}
-                onClick={navigateDetail}
-              >
-                <Card.Body>
-                  <Card.Img variant="top" src={Kopi} />
-                  <Card.Title
-                    className="my-3 fw-bold"
-                    style={{ fontSize: "15px " }}
-                  >
-                    Kopi Kenangan
-                  </Card.Title>
-                  <Card.Subtitle className=" text-muted">1,8 KM</Card.Subtitle>
-                </Card.Body>
-              </Card>
-            </div>
+            {RestaurantNear.map((item, index) => (
+              <div className="my-5 p-2 rounded" key={index}>
+                <Card
+                  style={{ width: "14rem", border: "none" }}
+                  onClick={navigateDetail}
+                >
+                  <Card.Body>
+                    <Card.Img variant="top" src={item.image} />
+                    <Card.Title
+                      className="my-3 fw-bold"
+                      style={{ fontSize: "15px " }}
+                    >
+                      {item.name}
+                    </Card.Title>
+                    <Card.Subtitle className=" text-muted">
+                      {item.distance}
+                    </Card.Subtitle>
+                  </Card.Body>
+                </Card>
+              </div>
+            ))}
           </div>
         ) : (
           <div className="d-flex justify-content-evenly">
-            <div className="my-5 p-2 rounded">
-              <button onClick={handleShow1} style={{ border: "none" }}>
-                <Card style={{ width: "14rem", border: "none" }}>
-                  <Card.Body>
-                    <Card.Img variant="top" src={Geprek} />
-                    <Card.Title
-                      className="my-3 fw-bold"
-                      style={{ fontSize: "15px " }}
-                    >
-                      Geprek Bensu
-                    </Card.Title>
-                    <Card.Subtitle className=" text-muted">
-                      0,2 KM
-                    </Card.Subtitle>
-                  </Card.Body>
-                </Card>
-              </button>
-            </div>
-            <div className="my-5 p-2 rounded">
-              <button onClick={handleShow1} style={{ border: "none" }}>
-                <Card style={{ width: "14rem", border: "none" }}>
-                  <Card.Body>
-                    <Card.Img variant="top" src={Nasgor} />
-                    <Card.Title
-                      className="my-3 fw-bold"
-                      style={{ fontSize: "15px " }}
-                    >
-                      Nasi Goreng Mas Rony
-                    </Card.Title>
-                    <Card.Subtitle className=" text-muted">
-                      0,6 KM
-                    </Card.Subtitle>
-                  </Card.Body>
-                </Card>
-              </button>
-            </div>
-            <div className="my-5 p-2 rounded">
-              <button onClick={handleShow1} style={{ border: "none" }}>
-                <Card style={{ width: "14rem", border: "none" }}>
-                  <Card.Body>
-                    <Card.Img variant="top" src={Pecel} />
-                    <Card.Title
-                      className="my-3 fw-bold"
-                      style={{ fontSize: "15px " }}
-                    >
-                      Pecel Ayam Prambanan
-                    </Card.Title>
-                    <Card.Subtitle className=" text-muted">
-                      0,6 KM
-                    </Card.Subtitle>
-                  </Card.Body>
-                </Card>
-              </button>
-            </div>
-            <div className="my-5 p-2 rounded">
-              <button onClick={handleShow1} style={{ border: "none" }}>
-                <Card style={{ width: "14rem", border: "none" }}>
-                  <Card.Body>
-                    <Card.Img variant="top" src={Kopi} />
-                    <Card.Title
-                      className="my-3 fw-bold"
-                      style={{ fontSize: "15px " }}
-                    >
-                      Kopi Kenangan
-                    </Card.Title>
-                    <Card.Subtitle className=" text-muted">
-                      1,8 KM
-                    </Card.Subtitle>
-                  </Card.Body>
-                </Card>
-              </button>
-            </div>
+            {RestaurantNear.map((item, index) => (
+              <div className="my-5 p-2 rounded" key={index}>
+                <button onClick={handleShow1} style={{ border: "none" }}>
+                  <Card style={{ width: "14rem", border: "none" }}>
+                    <Card.Body>
+                      <Card.Img variant="top" src={item.image} />
+                      <Card.Title
+                        className="my-3 fw-bold"
+                        style={{ fontSize: "15px " }}
+                      >
+                        {item.name}
+                      </Card.Title>
+                      <Card.Subtitle className=" text-muted">
+                        {item.distance}
+                      </Card.Subtitle>
+                    </Card.Body>
+                  </Card>
+                </button>
+              </div>
+            ))}
           </div>
         )}
       </div>
