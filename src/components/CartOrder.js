@@ -1,8 +1,5 @@
 import Map from "../assets/map.png";
-import Minus from "../assets/-.png";
 import Bin from "../assets/bin.png";
-import Plus from "../assets/+.png";
-import Geprek from "../assets/geprek.png";
 import Container from "react-bootstrap/Container";
 import React from "react";
 import Button from "react-bootstrap/Button";
@@ -12,7 +9,13 @@ import { useState } from "react";
 import Modal from "react-bootstrap/Modal";
 import { useNavigate } from "react-router-dom";
 
-function Cart({ item, setItem }) {
+function Cart({
+  items,
+  updateItemQuantity,
+  removeItem,
+  cartTotal,
+  totalItems,
+}) {
   const navigate = useNavigate();
 
   const navigateDetailRest = () => {
@@ -23,38 +26,6 @@ function Cart({ item, setItem }) {
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-
-  const Add = () => {
-    setItem({
-      item1Counter: item.item1Counter + 1,
-      item1Harga: item.item1Harga + 15000,
-      subTotal: item.subTotal + 15000,
-      qty: item.qty + 1,
-      total: item.total + 15000,
-    });
-  };
-
-  function Less() {
-    if (item.item1Counter > 0) {
-      setItem({
-        item1Counter: item.item1Counter - 1,
-        item1Harga: item.item1Harga - 15000,
-        subTotal: item.subTotal - 15000,
-        qty: item.qty - 1,
-        total: item.total - 15000,
-      });
-    }
-  }
-
-  function Delete() {
-    setItem({
-      item1Counter: item.item1Counter * 0,
-      item1Harga: item.item1Harga * 0,
-      subTotal: item.subTotal - 15000 * item.item1Counter,
-      qty: item.qty - item.item1Counter,
-      total: item.total * 0,
-    });
-  }
 
   return (
     <div>
@@ -127,13 +98,13 @@ function Cart({ item, setItem }) {
             <p>Review Your Order</p>
             <div className="d-flex">
               <div style={{ width: "60%" }}>
-                {item.qty > 0 ? (
-                  <div>
-                    <hr style={{ opacity: "100%" }}></hr>
+                <hr style={{ opacity: "100%" }}></hr>
+                {items.map((item) => (
+                  <div key={item.id}>
                     <div className="d-flex justify-content-between">
                       <div className="d-flex">
                         <img
-                          src={Geprek}
+                          src={item.image}
                           style={{
                             width: "100px",
                             height: "100px",
@@ -142,69 +113,71 @@ function Cart({ item, setItem }) {
                           alt="geprek"
                         ></img>
                         <div className="align-self-center">
-                          <p className="ms-3">Paket Geprek</p>
+                          <p className="ms-3">{item.name}</p>
                           <Button
                             style={{
-                              width: "0px",
-                              height: "0px",
-                              backgroundColor: "#EFEFEF",
+                              backgroundColor: "#433434",
                               border: "none",
-                              marginTop: "-30px",
                               marginLeft: "5px",
-                              marginRight: "15px",
                             }}
-                            onClick={() => {
-                              Less();
-                            }}
+                            className="px-2 py-0 mx-3"
+                            onClick={() =>
+                              updateItemQuantity(item.id, item.quantity - 1)
+                            }
                           >
-                            <img src={Minus} alt="geprek"></img>
+                            -
                           </Button>
-                          <span>{item.item1Counter}</span>
+                          <span
+                            style={{ display: "inline-block", width: "15px" }}
+                          >
+                            {item.quantity}
+                          </span>
                           <Button
                             style={{
-                              width: "0px",
-                              height: "0px",
-                              backgroundColor: "#EFEFEF",
+                              backgroundColor: "#433434",
                               border: "none",
-                              marginTop: "-30px",
                               marginLeft: "5px",
                             }}
-                            onClick={Add}
+                            onClick={() =>
+                              updateItemQuantity(item.id, item.quantity + 1)
+                            }
+                            className="px-2 py-0 ms-3"
                           >
-                            <img src={Plus} alt="geprek"></img>
+                            +
                           </Button>
                         </div>
                       </div>
                       <div className="d-flex align-items-center justify-content-end">
                         <div>
-                          <p className="text-danger">Rp{item.item1Harga}</p>
+                          <p className="text-danger">
+                            Rp{item.quantity * item.price}.000
+                          </p>
                           <img
                             src={Bin}
                             alt="sampah"
                             className="ms-5"
                             onClick={() => {
-                              Delete();
+                              removeItem(item.id);
                             }}
+                            style={{ float: "right" }}
                           ></img>
                         </div>
                       </div>
                     </div>
                     <hr style={{ opacity: "100%" }}></hr>
                   </div>
-                ) : (
-                  <div>
-                    <p>Your cart is empty, please check out product!</p>
-                    <Button
-                      style={{
-                        backgroundColor: "#433434",
-                        border: "none",
-                      }}
-                      onClick={navigateDetailRest}
-                    >
-                      Start Shopping!
-                    </Button>
-                  </div>
-                )}
+                ))}
+                <div>
+                  <Button
+                    style={{
+                      backgroundColor: "#433434",
+                      border: "none",
+                    }}
+                    onClick={navigateDetailRest}
+                  >
+                    Add more foods!
+                  </Button>
+                </div>
               </div>
               <div style={{ width: "40%" }} className="ms-5 ">
                 <hr style={{ opacity: "100%" }}></hr>
@@ -215,15 +188,15 @@ function Cart({ item, setItem }) {
                     <p>Ongkir</p>
                   </div>
                   <div style={{ textAlign: "right" }}>
-                    <p className="text-danger">Rp{item.subTotal}</p>
-                    <p>{item.qty}</p>
+                    <p className="text-danger">Rp{cartTotal}.000</p>
+                    <p>{totalItems}</p>
                     <p className="text-danger">Rp10.000</p>
                   </div>
                 </div>
                 <hr style={{ marginTop: "-3px", opacity: "100%" }}></hr>
                 <div className="d-flex justify-content-between">
                   <p className="text-danger">Total</p>
-                  <p className="text-danger">Rp{item.total + 10000}</p>
+                  <p className="text-danger">Rp{cartTotal + 10}.000</p>
                 </div>
               </div>
             </div>

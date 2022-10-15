@@ -218,22 +218,22 @@ function Page({ state, setState }) {
 
         {state.isLogin ? (
           <div className="d-flex justify-content-evenly">
-            {RestaurantNear.map((item, index) => (
+            {RestaurantNear.map((p, index) => (
               <div className="my-5 p-2 rounded" key={index}>
                 <Card
                   style={{ width: "14rem", border: "none" }}
                   onClick={navigateDetail}
                 >
                   <Card.Body>
-                    <Card.Img variant="top" src={item.image} />
+                    <Card.Img variant="top" src={p.image} />
                     <Card.Title
                       className="my-3 fw-bold"
-                      style={{ fontSize: "15px " }}
+                      style={{ fontSize: "15px" }}
                     >
-                      {item.name}
+                      {p.name}
                     </Card.Title>
                     <Card.Subtitle className=" text-muted">
-                      {item.distance}
+                      {p.distance}
                     </Card.Subtitle>
                   </Card.Body>
                 </Card>
@@ -242,20 +242,20 @@ function Page({ state, setState }) {
           </div>
         ) : (
           <div className="d-flex justify-content-evenly">
-            {RestaurantNear.map((item, index) => (
+            {RestaurantNear.map((p, index) => (
               <div className="my-5 p-2 rounded" key={index}>
                 <button onClick={handleShow1} style={{ border: "none" }}>
                   <Card style={{ width: "14rem", border: "none" }}>
-                    <Card.Body>
-                      <Card.Img variant="top" src={item.image} />
+                    <Card.Body className="text-start">
+                      <Card.Img variant="top" src={p.image} />
                       <Card.Title
                         className="my-3 fw-bold"
-                        style={{ fontSize: "15px " }}
+                        style={{ fontSize: "15px" }}
                       >
-                        {item.name}
+                        {p.name}
                       </Card.Title>
                       <Card.Subtitle className=" text-muted">
-                        {item.distance}
+                        {p.distance}
                       </Card.Subtitle>
                     </Card.Body>
                   </Card>

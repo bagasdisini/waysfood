@@ -12,8 +12,18 @@ import AddProduct from "./components/Add Product";
 import Transaction from "./components/IncomeTransaction";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import React, { useState } from "react";
+import { CartProvider, useCart } from "react-use-cart";
 
 function App() {
+  const { addItem } = useCart();
+  const {
+    totalItems,
+    items,
+    updateItemQuantity,
+    removeItem,
+    cartTotal 
+  } = useCart();
+
   const [state, setState] = useState({
     isLogin: false,
     isLoginUser: false,
@@ -30,37 +40,30 @@ function App() {
     },
   });
 
-  const [item, setItem] = useState({
-    total: 0,
-    subTotal: 0,
-    qty: 0,
-    item1Harga: 0,
-    item1Counter: 0,
-  });
-
   return (
+    <CartProvider>
     <Router>
       <Navigation
         state={state}
         setState={setState}
-        item={item}
-        setItem={setItem}
+        totalItems={totalItems}
       />
       <Routes>
         <Route path="/" element={<Page state={state} setState={setState} />} />
         <Route
           path="/detail-restaurant"
-          element={<Detail item={item} setItem={setItem} />}
+          element={<Detail addItem={addItem}/>}
         />
         <Route path="/my-profile" element={<Profile />} />
         <Route path="/profile-partner" element={<ProfilePartner />} />
-        <Route path="/cart" element={<Cart item={item} setItem={setItem} />} />
+        <Route path="/cart" element={<Cart items={items} updateItemQuantity={updateItemQuantity} removeItem={removeItem} cartTotal={cartTotal} totalItems={totalItems}/>} />
         <Route path="/edit-my-profile" element={<EditProfile />} />
         <Route path="/edit-profile-partner" element={<EditProfilePartner />} />
         <Route path="/add-product" element={<AddProduct />} />
         <Route path="/transaction" element={<Transaction />} />
       </Routes>
     </Router>
+    </CartProvider>
   );
 }
 
