@@ -15,8 +15,8 @@ import React, { useState } from "react";
 import { CartProvider, useCart } from "react-use-cart";
 
 function App() {
-  const { addItem } = useCart();
   const {
+    addItem,
     totalItems,
     items,
     updateItemQuantity,
