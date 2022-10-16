@@ -199,7 +199,7 @@ function Navigation({ state, setState, totalItems }) {
       </Modal>
 
       <Container>
-        <img src={Icon} width="125" alt="logo" onClick={navigateHome} />
+        <img src={Icon} width="125" alt="logo" onClick={navigateHome} style={{cursor:"pointer"}}/>
         {state.isLoginUser ? (
           <div
             style={{ float: "right", marginRight: "70px" }}

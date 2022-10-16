@@ -208,7 +208,7 @@ function Cart({
               }}
               className="px-5"
             >
-              See How Far ?
+              Order!
             </Button>
           </div>
         </div>

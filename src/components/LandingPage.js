@@ -198,7 +198,7 @@ function Page({ state, setState }) {
         <div className="d-flex justify-content-evenly">
           {Restaurant.map((item, index) => (
             <div
-              className="my-5 p-3 rounded"
+              className="mb-5 mt-4 p-3 rounded"
               style={{ backgroundColor: "white", width: "23%" }}
               key={index}
             >
@@ -219,7 +219,7 @@ function Page({ state, setState }) {
         {state.isLogin ? (
           <div className="d-flex justify-content-evenly">
             {RestaurantNear.map((p, index) => (
-              <div className="my-5 p-2 rounded" key={index}>
+              <div className="mb-5 mt-3 p-2 rounded" key={index} style={{cursor:"pointer"}}>
                 <Card
                   style={{ width: "14rem", border: "none" }}
                   onClick={navigateDetail}
@@ -243,7 +243,7 @@ function Page({ state, setState }) {
         ) : (
           <div className="d-flex justify-content-evenly">
             {RestaurantNear.map((p, index) => (
-              <div className="my-5 p-2 rounded" key={index}>
+              <div className="mb-5 mt-3 rounded" key={index}>
                 <button onClick={handleShow1} style={{ border: "none" }}>
                   <Card style={{ width: "14rem", border: "none" }}>
                     <Card.Body className="text-start">
