@@ -1,7 +1,7 @@
 import Geprek from "../assets/geprek.png";
 import Container from "react-bootstrap/Container";
 import Icon from "../assets/Icon.png";
-import React from "react";
+import React, { useEffect } from "react";
 import Button from "react-bootstrap/Button";
 import { useNavigate } from "react-router-dom";
 
@@ -15,6 +15,10 @@ function ProfilePartner() {
   const navigateTransaction = () => {
     navigate("/transaction");
   };
+
+  useEffect(() => {
+    document.title = "My Profile Partner";
+  }, []);
 
   return (
     <div>

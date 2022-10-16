@@ -1,11 +1,10 @@
 import Container from "react-bootstrap/Container";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
 import Button from "react-bootstrap/Button";
 import Map from "../assets/map.png";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
 import Modal from "react-bootstrap/Modal";
 
 function EditProfile() {
@@ -20,6 +19,10 @@ function EditProfile() {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
+  useEffect(() => {
+    document.title = "Edit Profile";
+  }, []);
+  
   return (
     <div>
       <Modal show={show} onHide={handleClose} size="lg">

@@ -1,7 +1,7 @@
 import Pizza from "../assets/pizza.png";
 import Line from "../assets/garis.png";
 import Card from "react-bootstrap/Card";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
@@ -40,6 +40,10 @@ function Page({ state, setState }) {
   const navigateDetail = () => {
     navigate("/detail-restaurant");
   };
+
+  useEffect(() => {
+    document.title = "Ways Food";
+  }, []);
 
   return (
     <div>

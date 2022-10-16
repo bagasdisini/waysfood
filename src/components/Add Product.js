@@ -1,10 +1,15 @@
 import Container from "react-bootstrap/Container";
-import React from "react";
+import React, { useEffect } from "react";
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
 import Button from "react-bootstrap/Button";
 
-function EditProfile() {
+function AddProduct() {
+
+  useEffect(() => {
+    document.title = "Add Product";
+  }, []);
+
   return (
     <div>
       <Container
@@ -56,4 +61,4 @@ function EditProfile() {
   );
 }
 
-export default EditProfile;
+export default AddProduct;

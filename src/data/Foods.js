@@ -15,7 +15,6 @@ export const Foods = [
         price1 : 'Rp15.000',
         price : 15,
         quantity : 1,
-        totalPrice : 0
     },
     {
         id : 2,
@@ -24,7 +23,6 @@ export const Foods = [
         price1: 'Rp20.000',
         price : 20,
         quantity : 1,
-        totalPrice : 0
     },
     {
         id : 3,
@@ -33,7 +31,6 @@ export const Foods = [
         price1: 'Rp25.000',
         price : 25,
         quantity : 1,
-        totalPrice : 0
     },
     {
         id : 4,
@@ -42,7 +39,6 @@ export const Foods = [
         price1: 'Rp15.000',
         price : 15,
         quantity : 1,
-        totalPrice : 0
     },
     {
         id : 5,
@@ -51,7 +47,6 @@ export const Foods = [
         price1: 'Rp17.000',
         price : 17,
         quantity : 1,
-        totalPrice : 0
     },
     {
         id : 6,
@@ -60,7 +55,6 @@ export const Foods = [
         price1: 'Rp22.000',
         price : 22,
         quantity : 1,
-        totalPrice : 0
     },
     {
         id : 7,
@@ -69,7 +63,6 @@ export const Foods = [
         price1: 'Rp27.000',
         price : 27,
         quantity : 1,
-        totalPrice : 0
     },
     {
         id : 8,
@@ -78,6 +71,5 @@ export const Foods = [
         price1: 'Rp22.000',
         price : 22,
         quantity : 1,
-        totalPrice : 0
     }
 ]

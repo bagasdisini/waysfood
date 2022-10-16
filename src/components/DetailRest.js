@@ -1,6 +1,6 @@
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
-import React from "react";
+import React, { useEffect } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Foods } from "../data/Foods";
@@ -17,6 +17,10 @@ function Detail({ addItem }) {
       theme: "light",
     });
   };
+
+  useEffect(() => {
+    document.title = "Geprek Bensu's Menu";
+  }, []);
 
   return (
     <div>

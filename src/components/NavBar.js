@@ -11,7 +11,7 @@ import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Product from "../assets/product.png";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function Navigation({ state, setState, totalItems }) {
   const [show, setShow] = useState(false);
@@ -199,7 +199,13 @@ function Navigation({ state, setState, totalItems }) {
       </Modal>
 
       <Container>
-        <img src={Icon} width="125" alt="logo" onClick={navigateHome} style={{cursor:"pointer"}}/>
+        <img
+          src={Icon}
+          width="125"
+          alt="logo"
+          onClick={navigateHome}
+          style={{ cursor: "pointer" }}
+        />
         {state.isLoginUser ? (
           <div
             style={{ float: "right", marginRight: "70px" }}
@@ -250,14 +256,16 @@ function Navigation({ state, setState, totalItems }) {
                   Profile
                 </Dropdown.Item>
                 <Dropdown.Item onClick={handleLogout}>
-                  <img
-                    src={Logout}
-                    alt="PP"
-                    width="15px"
-                    height="15px"
-                    className="me-1"
-                  />{" "}
-                  Logout
+                  <Link to="/">
+                    <img
+                      src={Logout}
+                      alt="PP"
+                      width="15px"
+                      height="15px"
+                      className="me-1"
+                    />{" "}
+                    Logout
+                  </Link>
                 </Dropdown.Item>
               </Dropdown.Menu>
             </Dropdown>
@@ -300,14 +308,16 @@ function Navigation({ state, setState, totalItems }) {
                   Add Product
                 </Dropdown.Item>
                 <Dropdown.Item onClick={handleLogout}>
-                  <img
-                    src={Logout}
-                    alt="PP"
-                    width="15px"
-                    height="15px"
-                    className="me-1"
-                  />{" "}
-                  Logout
+                  <Link to="/">
+                    <img
+                      src={Logout}
+                      alt="PP"
+                      width="15px"
+                      height="15px"
+                      className="me-1"
+                    />{" "}
+                    Logout
+                  </Link>
                 </Dropdown.Item>
               </Dropdown.Menu>
             </Dropdown>

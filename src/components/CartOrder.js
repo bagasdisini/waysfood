@@ -1,11 +1,10 @@
 import Map from "../assets/map.png";
 import Bin from "../assets/bin.png";
 import Container from "react-bootstrap/Container";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
-import { useState } from "react";
 import Modal from "react-bootstrap/Modal";
 import { useNavigate } from "react-router-dom";
 
@@ -26,6 +25,10 @@ function Cart({
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  useEffect(() => {
+    document.title = "Cart";
+  }, []);
 
   return (
     <div>

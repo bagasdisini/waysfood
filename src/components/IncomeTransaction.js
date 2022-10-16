@@ -1,11 +1,16 @@
 import Checked from "../assets/checked.png";
 import Cancel from "../assets/cancel.png";
 import Container from "react-bootstrap/Container";
-import React from "react";
+import React, { useEffect } from "react";
 import Table from "react-bootstrap/Table";
 import Button from "react-bootstrap/Button";
 
 function Transaction() {
+
+  useEffect(() => {
+    document.title = "Income Transaction";
+  }, []);
+
   return (
     <div>
       <Container
