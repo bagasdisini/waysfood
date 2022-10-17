@@ -14,7 +14,7 @@ export const Foods = [
         name : 'Paket Geprek',
         price1 : 'Rp15.000',
         price : 15,
-        quantity : 1,
+        quantity : 0,
     },
     {
         id : 2,
@@ -22,7 +22,7 @@ export const Foods = [
         name: 'Paket Geprek Keju',
         price1: 'Rp20.000',
         price : 20,
-        quantity : 1,
+        quantity : 0,
     },
     {
         id : 3,
@@ -30,7 +30,7 @@ export const Foods = [
         name: 'Paket Geprek Leleh',
         price1: 'Rp25.000',
         price : 25,
-        quantity : 1,
+        quantity : 0,
     },
     {
         id : 4,
@@ -38,7 +38,7 @@ export const Foods = [
         name: 'Paket Sambel Matah',
         price1: 'Rp15.000',
         price : 15,
-        quantity : 1,
+        quantity : 0,
     },
     {
         id : 5,
@@ -46,7 +46,7 @@ export const Foods = [
         name: 'Mie Ayam Geprek',
         price1: 'Rp17.000',
         price : 17,
-        quantity : 1,
+        quantity : 0,
     },
     {
         id : 6,
@@ -54,7 +54,7 @@ export const Foods = [
         name: 'Mie Ayam Geprek Keju',
         price1: 'Rp22.000',
         price : 22,
-        quantity : 1,
+        quantity : 0,
     },
     {
         id : 7,
@@ -62,7 +62,7 @@ export const Foods = [
         name: 'Mie Ayam Leleh',
         price1: 'Rp27.000',
         price : 27,
-        quantity : 1,
+        quantity : 0,
     },
     {
         id : 8,
@@ -70,6 +70,6 @@ export const Foods = [
         name: 'Mie Ayam Telur Asin',
         price1: 'Rp22.000',
         price : 22,
-        quantity : 1,
+        quantity : 0,
     }
 ]
